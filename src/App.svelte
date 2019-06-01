@@ -10,7 +10,14 @@
 	}
 </script>
 
-<h1>Hello {name}!</h1>
+<style>
+	h1{
+		color: #6518a9;
+		font-family: monospace;
+	}
+</style>
+
+<h1>Hello, {name}!</h1>
 
 <hr>
 
