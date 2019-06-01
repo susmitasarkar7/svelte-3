@@ -1,16 +1,17 @@
 <script>
 	export let name = 'world';
 
-	import { randomStore } from './store';
+	import Child from './Child.svelte';
+
+	let data = {
+		userId: 123456,
+		name: 'John Doe',
+		email: 'john@email.com' 
+	}
 </script>
 
 <h1>Hello {name}!</h1>
 
 <hr>
 
-	{$randomStore}
-
-<hr>
-
-<button on:click={() => randomStore.set(Math.random()}>
-</button>
+<Child {...data} />
