@@ -1,4 +1,6 @@
 <script>
+	import { fade, fly } from 'svelte/transition;
+
 	export let name = 'world';
 
 	let rando;
@@ -21,9 +23,12 @@
 <p>Your score is {result}</p>
 
 {#if result > 75}
-	<p>Big winner! top 25%</p>
+	<p transition:fade>Big winner! top 25%</p>
 {:else if result > 50}
 	<p>Decent, top 50%</p>
 {:else}
-	<p>Loser</p>
+	<p
+		in:fly={{ x:1000, duration:500 }}
+		out:fly={{ x:-500, duration:500 }}
+	>Loser</p>
 {/if}
