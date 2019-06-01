@@ -1,5 +1,5 @@
 <script>
-	import { fade, fly } from 'svelte/transition;
+	import { fade, fly } from 'svelte/transition';
 
 	export let name = 'world';
 
