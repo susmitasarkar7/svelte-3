@@ -1,18 +1,21 @@
 <script>
-	import { fade, fly } from 'svelte/transition';
-
 	export let name = 'world';
 
-	let randos = [];
-
-	function setrando() {
-		const rando = Math.random(Math.random() * 100);
-		randos = [...randos, rando]
+	function delay(ms) {
+		return new Promise(resolve => setTimeout(resolve));
 	}
+
+	let rando = delay(2000).then(v => Math.random());
 </script>
 
 <h1>Hello {name}!</h1>
 
 <hr>
 
-<button on:click={setrando}>Push</button>
+{#await rando}
+	<p>thinking about it...</p>
+{:then number}
+	<p>Result {number}</p>
+{:catch error}
+	<p>{error.message}</p>
+{/await}
